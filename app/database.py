@@ -3,7 +3,7 @@ from pathlib import Path
 from sqlmodel import SQLModel, create_engine, Session
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).with_name(".env"))
+load_dotenv(Path(__file__).resolve().parent.parent /".env")
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./qa_ops.db")
 engine = create_engine(DATABASE_URL, echo=True)
